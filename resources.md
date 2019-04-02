@@ -8,6 +8,8 @@ https://www.hawkular.org (old / redhat)
 https://opentracing.io
 https://github.com/OpenLiberty/guide-microprofile-opentracing
 
+https://wad.sh
+
 # Archetype
 
 #!/bin/sh
@@ -15,3 +17,49 @@ PROJECT_NAME=$1
 mvn archetype:generate -o -DarchetypeGroupId=com.airhacks -DarchetypeArtifactId=javaee8-essentials-archetype -DarchetypeVersion=0.0.2 -DgroupId=com.airhacks -Dversion=0.0.1 -Darchetype.interactive=false --batch-mode -DartifactId=${PROJECT_NAME} 
 
 http://www.adam-bien.com/roller/abien/entry/java_ee_8_essentials_archetype
+
+http://localhost:8080/hello/resources/ping
+
+Multiple roots with one JAX-RS
+
+http://www.adam-bien.com/roller/abien/entry/multiple_jax_rs_uris_in
+
+
+# servers
+
+https://openliberty.io
+http://tomee.apache.org
+https://www.tomitribe.com
+https://wildfly.org
+https://www.payara.fish
+
+# misc
+
+https://jcp.org/en/jsr/detail?id=316 (why Java EE 6 was late)
+https://jcp.org/en/jsr/detail?id=330 (@Inject)
+
+# JSON-B with private (nice to have)
+
+http://www.adam-bien.com/roller/abien/entry/private_fields_serialization_with_json
+
+# CURL 
+
+curl -i -H"Content-type: application/json" -d'{"hugo":"m","proxyClass":"p"}' http://localhost:8080/hello/resources/ping
+
+
+If you forget to start transactions:
+
+HTTP/1.1 500 Internal Server Error
+Server: Payara Server  5.184 #badassfish
+X-Powered-By: Servlet/4.0 JSP/2.3 (Payara Server  5.184 #badassfish Java/Oracle Corporation/1.8)
+Content-Type: application/json
+Connection: close
+Content-Length: 46
+X-Frame-Options: SAMEORIGIN
+
+javax.persistence.TransactionRequiredException%    
+
+
+# Metrics
+
+curl -i -H"Accept: application/json" http://localhost:8080/metrics/application/

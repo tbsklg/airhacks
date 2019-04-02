@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import org.eclipse.microprofile.metrics.annotation.Metered;
 
 /**
  *
@@ -41,6 +42,7 @@ public class PingResource {
 
 
     @POST
+    @Metered
     public void save(Ping ping) {
         listeners.fire(ping);
         this.pingy.save(ping);
