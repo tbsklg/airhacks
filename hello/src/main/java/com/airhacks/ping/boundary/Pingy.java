@@ -4,6 +4,7 @@ package com.airhacks.ping.boundary;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,7 +21,7 @@ public class Pingy {
     EntityManager em;
 
     @Inject
-    Notification notification;
+    Instance<Notification> notifications;
 
     @PostConstruct
     public void init() {
@@ -38,7 +39,12 @@ public class Pingy {
         //this.em.refresh(ping);
 
         ping.message = "new content " + System.currentTimeMillis();
-        notification.send("hey joe");
+        System.out.println("Ambiguous: " + this.notifications.isAmbiguous());
+        System.out.println("Unsatisfied: " + this.notifications.isUnsatisfied());
+
+        for (Notification notification : this.notifications) {
+            notification.send("hello");
+        }
     }
     //tx.commit
 
