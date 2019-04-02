@@ -1,8 +1,7 @@
 package com.airhacks.ping.boundary;
 
 import static java.util.concurrent.CompletableFuture.supplyAsync;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import java.util.concurrent.TimeUnit;
 import javax.annotation.Resource;
 import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.inject.Inject;
@@ -26,11 +25,14 @@ public class PingResource {
 
     @GET
     public void ping(@Suspended AsyncResponse response) {
+        response.setTimeout(2, TimeUnit.SECONDS);
+        supplyAsync(provider::nextPing, mes).
+                thenApply(this::transform).
+                thenAccept(response::resume);
+    }
 
-        Supplier<String> supplier = provider::nextPing;
-        Consumer<String> consumer = response::resume;
-
-        supplyAsync(supplier, mes).thenAccept(consumer);
+    String transform(String input) {
+        return "+++ " + input + "+++";
     }
 
 }
