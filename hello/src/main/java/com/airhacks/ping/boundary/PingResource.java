@@ -1,6 +1,7 @@
 package com.airhacks.ping.boundary;
 
 import java.util.List;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
@@ -26,6 +27,15 @@ public class PingResource {
     @Inject
     Event<Ping> listeners;
 
+    @Inject
+    String duke;
+
+    @Inject
+    String hugo;
+
+    @Inject
+    Logger LOG;
+
     @GET
     public List<Ping> ping() {
         return this.pingy.all();
@@ -41,6 +51,8 @@ public class PingResource {
     @POST
     @Metered
     public void save(Ping ping) {
+        LOG.info("I'm injected");
+        System.out.println("-- " + this.duke + " " + this.hugo);
         listeners.fire(ping);
         this.pingy.save(ping);
         matter.save();
