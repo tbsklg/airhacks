@@ -1,5 +1,6 @@
 package com.airhacks.ping.boundary;
 
+import javax.json.JsonObject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
@@ -11,8 +12,8 @@ import javax.ws.rs.Path;
 public class PingResource {
 
     @GET
-    public String ping() {
-        return "Enjoy Java EE 8!";
+    public JsonObject ping() {
+        return new Ping("duke").toJson();
     }
 
 }
