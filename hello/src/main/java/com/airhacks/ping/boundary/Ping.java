@@ -35,4 +35,10 @@ public class Ping {
         this.message = message;
         this.proxyClass = proxyClass;
     }
+
+    @Override
+    public String toString() {
+        return "Ping{" + "message=" + message + ", proxyClass=" + proxyClass + ", idKey=" + idKey + '}';
+    }
+
 }

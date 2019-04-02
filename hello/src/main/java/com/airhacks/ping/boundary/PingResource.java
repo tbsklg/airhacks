@@ -4,6 +4,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -24,6 +25,9 @@ public class PingResource {
     @Inject
     DoesntMatter matter;
 
+    @Inject
+    Event<Ping> listeners;
+
     @GET
     public List<Ping> ping() {
         return this.pingy.all();
@@ -38,6 +42,7 @@ public class PingResource {
 
     @POST
     public void save(Ping ping) {
+        listeners.fire(ping);
         this.pingy.save(ping);
         matter.save();
 
