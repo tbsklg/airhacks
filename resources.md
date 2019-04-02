@@ -87,3 +87,16 @@ http://www.adam-bien.com/roller/abien/entry/a_java_ee_7_alternative
 #!/bin/sh
 cd $LIBERTY_HOME/bin
 ./server run%   
+
+http://www.adam-bien.com/roller/abien/entry/client_side_http_basic_access
+
+
+https://en.wikipedia.org/wiki/Role-based_access_control
+
+https://jwt.io
+
+https://www.eclipse.org/community/eclipse_newsletter/2017/september/article2.php
+
+https://www.keycloak.org
+
+https://www.forgerock.com
