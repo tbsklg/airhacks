@@ -62,5 +62,14 @@ public class PingResource {
 
     }
 
+    /*
+    @GET
+    @Path("cached")
+    public Response cachedPing() {
+        new CacheControl().s
+        return Response.ok(new Ping("cached", "no")).cacheControl().build();
+    }
+*/
+
 
 }
