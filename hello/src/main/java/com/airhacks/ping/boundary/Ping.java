@@ -5,12 +5,14 @@ import javax.json.bind.annotation.JsonbProperty;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author airhacks.com
  */
 @Entity
+@NamedQuery(name = "all", query = "SELECT p from Ping p")
 public class Ping {
 
     /**

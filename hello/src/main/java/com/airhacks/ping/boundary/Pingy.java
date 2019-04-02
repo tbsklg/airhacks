@@ -1,6 +1,7 @@
 
 package com.airhacks.ping.boundary;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -24,9 +25,13 @@ public class Pingy {
     }
 
 
-    public String pingMe() {
-        this.em.merge(new Ping("to DB", "I dont know"));
-        return "hello from airport";
+    public void save(Ping ping) {
+        this.em.merge(ping);
     }
+
+    public List<Ping> all() {
+        return this.em.createNamedQuery("all", Ping.class).getResultList();
+    }
+
 
 }
