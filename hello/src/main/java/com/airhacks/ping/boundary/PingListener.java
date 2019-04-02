@@ -1,6 +1,7 @@
 
 package com.airhacks.ping.boundary;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.enterprise.event.TransactionPhase;
 import javax.inject.Inject;
@@ -11,6 +12,7 @@ import org.eclipse.microprofile.metrics.annotation.RegistryType;
  *
  * @author airhacks.com
  */
+@ApplicationScoped
 public class PingListener {
 
     @Inject
