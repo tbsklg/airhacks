@@ -15,9 +15,8 @@ public class PingResource {
     Pingy pingy;
 
     @GET
-    public String ping() {
-
-        return this.pingy.pingMe() + " with  " + this.pingy.getClass().getName();
+    public Ping ping() {
+        return new Ping(this.pingy.pingMe(), this.pingy.getClass().getName());
     }
 
 }
