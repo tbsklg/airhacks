@@ -36,6 +36,9 @@ public class PingResource {
     @Inject
     Logger LOG;
 
+    @Inject
+    InjectMe me;
+
     @GET
     public List<Ping> ping() {
         return this.pingy.all();
@@ -51,7 +54,7 @@ public class PingResource {
     @POST
     @Metered
     public void save(Ping ping) {
-        LOG.info("I'm injected");
+        LOG.info("I'm injected " + this.me);
         System.out.println("-- " + this.duke + " " + this.hugo);
         listeners.fire(ping);
         this.pingy.save(ping);
