@@ -11,8 +11,18 @@ import javax.json.bind.config.PropertyVisibilityStrategy;
  */
 public class AljoschaStrategy implements PropertyVisibilityStrategy {
 
+    private boolean everything;
+
+    public AljoschaStrategy(boolean everything) {
+        this.everything = everything;
+    }
+
+
     @Override
     public boolean isVisible(Field field) {
+        if (everything) {
+            return true;
+        }
         return field.isAnnotationPresent(MetaData.class);
     }
 

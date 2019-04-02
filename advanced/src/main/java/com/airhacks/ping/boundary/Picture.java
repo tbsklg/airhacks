@@ -13,4 +13,11 @@ public class Picture {
     public int size;
 
     public String content;
+
+    public Picture(String name, int size, String content) {
+        this.name = name;
+        this.size = size;
+        this.content = content;
+    }
+
 }
