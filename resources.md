@@ -63,3 +63,27 @@ javax.persistence.TransactionRequiredException%
 # Metrics
 
 curl -i -H"Accept: application/json" http://localhost:8080/metrics/application/
+
+https://prometheus.io
+
+http://localhost:8080/openapi
+
+http://localhost:9080/openapi/ui/
+
+http://www.adam-bien.com/roller/abien/entry/service_s_new_serviceimpl_why
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+
+https://varnish-cache.org
+
+http://www.squid-cache.org
+
+https://httpd.apache.org/docs/2.4/mod/mod_cache.html
+
+http://www.adam-bien.com/roller/abien/entry/a_java_ee_7_alternative
+
+# start liberty
+
+#!/bin/sh
+cd $LIBERTY_HOME/bin
+./server run%   
